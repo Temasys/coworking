@@ -24,7 +24,7 @@
 
     <meta name="apple-mobile-web-app-capable" content="no">
     <meta name="mobile-web-app-capable" content="yes">
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="app.css">
 </head>
@@ -40,8 +40,7 @@
     <canvas id="photo" style="display: none;" width="160" height="120"></canvas>
     <audio id="alert" src="beepbeep.mp3" style="display: none;"></audio>
 
-    <!--<script type="text/javascript" src="//l2.io/ip.js?var=myip"></script>-->
-    <script type="text/javascript" src="//cdn.temasys.com.sg/skylink/skylinkjs/0.5.x/skylink.complete.min.js"></script>
+    <script type="text/javascript" src="//cdn.temasys.com.sg/skylink/skylinkjs/latest/skylink.complete.min.js"></script>
     <script type="text/javascript" src="helpers.js"></script>
     <script type="text/javascript">
 
@@ -105,7 +104,7 @@
                 var roomPeerId = msg.substr(9);
                 var name = isSelf ? skylink.getPeerInfo(roomPeerId).userData.name : peerInfo.userData.name;
 
-                addMessage('<a href="http://getaroom.io/' + roomPeerId + '" target="_blank">Get an audio/video meeting room with ' + name + '</a>',
+                addMessage('<a href="https://getaroom.io/' + roomPeerId + '" target="_blank">Get an audio/video meeting room with ' + name + '</a>',
                     'action', isSelf ? roomPeerId : peerId);
             }
         }
@@ -155,7 +154,7 @@
             skylink.setUserData(user);
             replay();
             if(mediaOK === false) {
-                $pic.src = last_pic = "http://robohash.org/" + peerId;
+                $pic.src = last_pic = "https://robohash.org/" + peerId;
                 $pic.style.display = "inline";
             }
             addMessage('Welcome to ' + room + ', ' + user.name + '.', 'bot');
@@ -163,7 +162,7 @@
         else {
             var info = skylink.getPeerInfo(peerId);
             var $img = addUserImage(peerId, info.userData.name);
-            $img.src = peer_pics[peerId] = "http://robohash.org/" + peerId;
+            $img.src = peer_pics[peerId] = "https://robohash.org/" + peerId;
             addMessage('is in ' + room, 'action', peerId, false);
         }
     });
@@ -186,8 +185,7 @@
     });
 
     skylink.init({
-        //apiKey: '48f72309-6dd1-47bb-9dd2-aa43f4a6a14a',
-        apiKey: '774b477f-dc20-4374-ba13-3eda09414c28',
+        apiKey: 'c2f6af30-3589-46e6-adea-bd4ebac8b671',
         defaultRoom: hash
     }, function() {
         skylink.getUserMedia({
